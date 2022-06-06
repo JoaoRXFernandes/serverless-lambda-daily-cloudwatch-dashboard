@@ -25,15 +25,39 @@ plugins:
 ```
 
 ## Errors metadata
+
+Generic error:
 ```
 {
   subDomain: "",
   boundedContext: "",
   functionName: "",
 
-  message: "",
+  message: "error",
   error: {
-    message: "",
+    message: "detail"
+  },
+
+  statusCode: 500
+}
+```
+
+Dependency error:
+```
+{
+  subDomain: "",
+  boundedContext: "",
+  functionName: "",
+
+  message: "dependencyError.[server|client].[serverStatus|clientError]",
+  error: {
+    request: {
+      method: "GET",
+      path: "/..."
+    },
+    response: {
+      status: 500
+    }
   },
 
   statusCode: 500
